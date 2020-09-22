@@ -1,0 +1,56 @@
+<template lang="pug">
+.page2
+  plug(_name="module98" _src="https://template.owo.ink/d998fae6830db2ac.owo")
+  //- 卡片列表
+  .card-box
+    .card-item.card-1(style="background-color: #e1e3e0;")
+    .card-item.card-2(style="background-color: #4b563c;")
+    .card-item.card-3(style="background-color: white;")
+</template>
+<script>
+module.exports = {
+}
+</script>
+<style lang="less">
+.page2 {
+  background-image: url('@|page2-bg.png|');
+}
+.header1 {
+  background: #fafafa;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.card-box {
+  position: absolute;
+  width: 700px;
+  height: 600px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.card-item {
+  width: 471px;
+  height: 691px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.card-1 {
+  transform: rotate(3deg);
+}
+.card-2 {
+  transform: rotate(-11deg);
+  width: 445px;
+  height: 651px;
+}
+.card-3 {
+  width: 408px;
+  height: 635px;
+}
+</style>

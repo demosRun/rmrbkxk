@@ -1,0 +1,44 @@
+<template lang="pug">
+.home
+  .scale-box
+    img.so.so-0(src="@|page-446.png|")
+    img.so.so-1(src="@|page-527.png|")
+    img.so.so-2(src="@|page-532.png|")
+    img.so.so-3(src="@|page-534.png|")
+</template>
+
+<script>
+  module.exports = {
+
+  }
+</script>
+
+
+<style lang="less">
+.home {
+  background-image: url('@|page-531.jpg|');
+}
+.so {
+  position: absolute;
+}
+.so-0 {
+  left: 265px;
+  top: 93px;
+  z-index: 3;
+}
+.so-1 {
+  left: 557px;
+  top: 268px;
+  z-index: 2;
+}
+.so-2 {
+  left: 784px;
+  top: 700px;
+  z-index: 1;
+}
+.so-3 {
+  left: 812px;
+  top: 954px;
+  z-index: 0;
+}
+</style>

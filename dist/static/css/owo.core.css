@@ -1,0 +1,192 @@
+body, html, .page, .page-box {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+.owo-animation {
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.owo-animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.owo-animation-forward {
+  z-index: 99;
+}
+
+img {
+  border: none;
+}
+
+[route-active="false"] {
+  display: none;
+}
+
+/* 清除浮动 */
+.clear:after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+  zoom: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.home {
+  background-image: url('../resource/page-531.jpg');
+}
+
+.home .so {
+  position: absolute;
+}
+
+.home .so-0 {
+  left: 265px;
+  top: 93px;
+  z-index: 3;
+}
+
+.home .so-1 {
+  left: 557px;
+  top: 268px;
+  z-index: 2;
+}
+
+.home .so-2 {
+  left: 784px;
+  top: 700px;
+  z-index: 1;
+}
+
+.home .so-3 {
+  left: 812px;
+  top: 954px;
+  z-index: 0;
+}
+.header1 .w1000 {
+  width: 1000px;
+  margin: 0 auto;
+  height: 45px;
+}
+
+.header1 {
+  background: #fff;
+  height: 45px;
+  width: 100%;
+}
+
+.header1 .left {
+  float: left;
+  height: 45px;
+  width: 90px;
+  position: relative;
+}
+
+.header1 .left a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.header1 .left img {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.header1 em {
+  float: right;
+  line-height: 45px;
+  font-style: normal;
+  font-size: 14px;
+}
+
+.header1 em a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.header1 em a:hover {
+  text-decoration: underline;
+}
+
+.header1 em,
+.header1 em a,
+.header1 em a:link,
+.header1 em a:visited,
+.header1 em a:hover {
+  color: #666;
+}
+.page2 {
+  background-image: url('../resource/page2-bg.png');
+}
+
+.page2 .header1 {
+  background: #fafafa;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.page2 .card-box {
+  position: absolute;
+  width: 700px;
+  height: 600px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.page2 .card-item {
+  width: 471px;
+  height: 691px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.page2 .card-1 {
+  transform: rotate(3deg);
+}
+
+.page2 .card-2 {
+  transform: rotate(-11deg);
+  width: 445px;
+  height: 651px;
+}
+
+.page2 .card-3 {
+  width: 408px;
+  height: 635px;
+}
+
