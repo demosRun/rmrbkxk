@@ -83,3 +83,26 @@ h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, bu
 .pc .no-pc, .phone .no-phone {
   display: none;
 }
+
+.show-info .right-logo, .show-info .left-big-font {
+  top: -70%;
+}
+
+.show-info .bottom-menu {
+  bottom: -80px;
+}
+
+.show-info .card-1, .show-info .card-2, .show-info .card-3 .show-image {
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+.show-info .card-3,  .show-info .card-box{
+  width: 1000px;
+  height: 900px;
+}
+
+.show-info .page-show {
+  display: block;
+}

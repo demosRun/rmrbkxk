@@ -6,7 +6,11 @@
     .card-box
       .card-item.card-1(style="background-color: #e1e3e0;")
       .card-item.card-2(style="background-color: #4b563c;")
-      .card-item.card-3(style="background-color: white;")
+      .card-item.card-3(style="background-color: white;" o-hover="hang" o-tap="showInfo")
+        img.show-image
+        .page-show
+          .title
+          p 70年砥砺奋进，70年破浪前行。2019年是新中国成立70周年，中国成就备受世界瞩目。这一年，习近平主席在多个国内外高光时刻讲述中国发展故事，以坚定自信的政治气魄、大国领袖的责任担当，深入思考人类前途命运，引领自信的中国阔步走向世界。
     //- 左侧显示的大字
     .left-big-font(font="HYXuJingXingKaiW.ttf") 美丽中国
     //- 右侧显示的logo
@@ -18,6 +22,7 @@
         .active-line
         .edit
           .active-color 4b563c
+          img.show-img(src="@|image-1.png|")
           img.icon(src="@|local-1.png|")
       .item.item-2(o-tap="changeActive(1)")
         .text(font="HYXuJingXingKaiW.ttf") 活力中国
@@ -25,37 +30,42 @@
         .edit
           .active-color d1b060
           img.icon(src="@|local-2.png|")
+          img.show-img(src="@|image-2.png|")
       .item.item-3(o-tap="changeActive(2)")
         .text(font="HYXuJingXingKaiW.ttf") 和谐中国
         .active-line
         .edit
           .active-color 80a5ef
           img.icon(src="@|local-3.png|")
+          img.show-img(src="@|image-3.png|")
       .item.item-4(o-tap="changeActive(3)")
         .text(font="HYXuJingXingKaiW.ttf") 乡土中国
         .active-line
         .edit
           .active-color 477e6b
           img.icon(src="@|local-4.png|")
+          img.show-img(src="@|image-4.png|")
       .item.item-5(o-tap="changeActive(4)")
         .text(font="HYXuJingXingKaiW.ttf") 文化中国
         .active-line
         .edit
           .active-color ead197
           img.icon(src="@|local-5.png|")
+          img.show-img(src="@|image-4.png|")
       .item.item-6(o-tap="changeActive(5)")
         .text(font="HYXuJingXingKaiW.ttf") 创新中国
         .active-line
         .edit
           .active-color a793a1
           img.icon(src="@|local-6.png|")
+          img.show-img(src="@|image-6.png|")
 </template>
 <script>
 module.exports = {
   created: function () {
-    this.changeActive(0)
+    this.changeActive(0, true)
   },
-  changeActive: function (ind) {
+  changeActive: function (ind, start) {
     const itemList = this.queryAll('.bottom-menu .item')
     for (const key in itemList) {
       if (itemList.hasOwnProperty(key)) {
@@ -64,25 +74,37 @@ module.exports = {
       }
     }
     if (itemList[ind]) {
+      // 如果不是页面刚启动使用特效
       itemList[ind].classList.add('active')
-      console.log(itemList[ind].query('.text'))
+      // console.log(itemList[ind].query('.text'))
       const leftBigFont = this.query('.left-big-font')
       leftBigFont.innerText = itemList[ind].query('.text').innerText
       // 更换颜色
       const color = '#' + itemList[ind].query('.active-color').innerText
       leftBigFont.style.color = color
       const card2 = this.query('.card-box .card-2')
-      card2.classList.add('fly-ani')
-      setTimeout(() => {
-        card2.style.backgroundColor = color
-      }, 1000);
-      setTimeout(() => {
-        card2.classList.remove('fly-ani')
-      }, 2500);
-      owo.tool.fadeChangeImage(this.query('.right-logo'), itemList[ind].query('.icon').src, 2000)
+      if (start) {
+        this.query('.right-logo').src = itemList[ind].query('.icon').src
+        this.query('.card-3 img').src = itemList[ind].query('.show-img').src
+      } else {
+        card2.classList.add('fly-ani')
+        setTimeout(() => {
+          card2.style.backgroundColor = color
+        }, 1000);
+        setTimeout(() => {
+          card2.classList.remove('fly-ani')
+        }, 2500);
+        owo.tool.fadeChangeImage(this.query('.right-logo'), itemList[ind].query('.icon').src, 2000)
+        // 改变大图
+        owo.tool.fadeChangeImage(this.query('.card-3 img'), itemList[ind].query('.show-img').src, 2000)
+      }
+      
     }
     
     // console.log(this.$target)
+  },
+  showInfo: function () {
+    this.$el.classList.add('show-info')
   }
 }
 </script>
@@ -118,15 +140,22 @@ module.exports = {
 }
 .card-1 {
   transform: rotate(3deg);
+  transition: opacity 2s;
 }
 .card-2 {
   transform: rotate(-11deg);
   width: 445px;
   height: 651px;
+  transition: opacity 2s;
 }
 .card-3 {
   width: 408px;
   height: 635px;
+  cursor: pointer;
+  transition: width 2s, height 2s;
+  .show-image {
+    transition: opacity 2s;
+  }
 }
 .bottom-menu {
   position: absolute;
@@ -137,6 +166,7 @@ module.exports = {
   margin: 0 auto;
   left: 0;
   right: 0;
+  transition: bottom 2s;
   .item {
     float: left;
     text-align: center;
@@ -224,6 +254,7 @@ module.exports = {
   margin: auto;
   line-height: 50px;
   height: 50px;
+  transition: top 2s;
 }
 .edit {
   display: none;
@@ -234,6 +265,7 @@ module.exports = {
   bottom: 0;
   margin: auto;
   right: 200px;
+  transition: top 2s;
 }
 @keyframes anni {
   0%{
@@ -264,5 +296,29 @@ module.exports = {
 
 .fly-ani {
   animation: anni 2s 1 0s linear;
+}
+.card-item {
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+.page-show {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  .title {
+    background-image: url('@|title.png|');
+    height: 60px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 </style>

@@ -141,7 +141,62 @@ li {
 .header1 em a:visited,
 .header1 em a:hover {
   color: #666;
+}/* Hang */
+@-webkit-keyframes owo-hover-hang {
+  0% {
+    transform: translateY(8px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(8px);
+  }
 }
+@keyframes owo-hover-hang {
+  0% {
+    transform: translateY(8px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(8px);
+  }
+}
+@-webkit-keyframes owo-hover-hang-sink {
+  100% {
+    transform: translateY(8px);
+  }
+}
+@keyframes owo-hover-hang-sink {
+  100% {
+    transform: translateY(8px);
+  }
+}
+[o-hover="hang"] {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+[o-hover="hang"]:hover, [o-hover="hang"]:focus, [o-hover="hang"]:active {
+  -webkit-animation-name: owo-hover-hang-sink, owo-hover-hang;
+  animation-name: owo-hover-hang-sink, owo-hover-hang;
+  -webkit-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+}
+
             [font="HYXuJingXingKaiW"] {
               font-family: 'HYXuJingXingKaiW';
             }
@@ -189,17 +244,25 @@ li {
 
 .page2 .card-1 {
   transform: rotate(3deg);
+  transition: opacity 2s;
 }
 
 .page2 .card-2 {
   transform: rotate(-11deg);
   width: 445px;
   height: 651px;
+  transition: opacity 2s;
 }
 
 .page2 .card-3 {
   width: 408px;
   height: 635px;
+  cursor: pointer;
+  transition: width 2s, height 2s;
+}
+
+.page2 .card-3 .show-image {
+  transition: opacity 2s;
 }
 
 .page2 .bottom-menu {
@@ -211,6 +274,7 @@ li {
   margin: 0 auto;
   left: 0;
   right: 0;
+  transition: bottom 2s;
 }
 
 .page2 .bottom-menu .item {
@@ -323,6 +387,7 @@ li {
   margin: auto;
   line-height: 50px;
   height: 50px;
+  transition: top 2s;
 }
 
 .page2 .edit {
@@ -335,6 +400,7 @@ li {
   bottom: 0;
   margin: auto;
   right: 200px;
+  transition: top 2s;
 }
 
 @-webkit-keyframes anni {
@@ -404,5 +470,29 @@ li {
 .page2 .fly-ani {
   -webkit-animation: anni 2s 1 0s linear;
           animation: anni 2s 1 0s linear;
+}
+
+.page2 .card-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.page2 .page-show {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.page2 .page-show .title {
+  background-image: url('../resource/title.png');
+  height: 60px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 

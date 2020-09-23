@@ -45,7 +45,7 @@
         <a href="http://sports.people.com.cn/" target="_blank">网站地图</a>
       </em>
     </div>
-  </div><div class="scale-box"><div class="card-box"><div class="card-item card-1" style="background-color: #e1e3e0;"></div><div class="card-item card-2" style="background-color: #4b563c;"></div><div class="card-item card-3" style="background-color: white;"></div></div><div class="left-big-font" font="HYXuJingXingKaiW">美丽中国</div><img class="right-logo" src="./static/resource/local-1.png"><div class="bottom-menu clear"><div class="item item-1" o-tap="changeActive(0)"><div class="text" font="HYXuJingXingKaiW">美丽中国</div><div class="active-line"></div><div class="edit"><div class="active-color">4b563c</div><img class="icon" src="./static/resource/local-1.png"></div></div><div class="item item-2" o-tap="changeActive(1)"><div class="text" font="HYXuJingXingKaiW">活力中国</div><div class="active-line"></div><div class="edit"><div class="active-color">d1b060</div><img class="icon" src="./static/resource/local-2.png"></div></div><div class="item item-3" o-tap="changeActive(2)"><div class="text" font="HYXuJingXingKaiW">和谐中国</div><div class="active-line"></div><div class="edit"><div class="active-color">80a5ef</div><img class="icon" src="./static/resource/local-3.png"></div></div><div class="item item-4" o-tap="changeActive(3)"><div class="text" font="HYXuJingXingKaiW">乡土中国</div><div class="active-line"></div><div class="edit"><div class="active-color">477e6b</div><img class="icon" src="./static/resource/local-4.png"></div></div><div class="item item-5" o-tap="changeActive(4)"><div class="text" font="HYXuJingXingKaiW">文化中国</div><div class="active-line"></div><div class="edit"><div class="active-color">ead197</div><img class="icon" src="./static/resource/local-5.png"></div></div><div class="item item-6" o-tap="changeActive(5)"><div class="text" font="HYXuJingXingKaiW">创新中国</div><div class="active-line"></div><div class="edit"><div class="active-color">a793a1</div><img class="icon" src="./static/resource/local-6.png"></div></div></div></div></div></div>
+  </div><div class="scale-box"><div class="card-box"><div class="card-item card-1" style="background-color: #e1e3e0;"></div><div class="card-item card-2" style="background-color: #4b563c;"></div><div class="card-item card-3" style="background-color: white;" o-hover="hang" o-tap="showInfo"><img class="show-image"><div class="page-show"><div class="title"></div><p>70年砥砺奋进，70年破浪前行。2019年是新中国成立70周年，中国成就备受世界瞩目。这一年，习近平主席在多个国内外高光时刻讲述中国发展故事，以坚定自信的政治气魄、大国领袖的责任担当，深入思考人类前途命运，引领自信的中国阔步走向世界。</p></div></div></div><div class="left-big-font" font="HYXuJingXingKaiW">美丽中国</div><img class="right-logo" src="./static/resource/local-1.png"><div class="bottom-menu clear"><div class="item item-1" o-tap="changeActive(0)"><div class="text" font="HYXuJingXingKaiW">美丽中国</div><div class="active-line"></div><div class="edit"><div class="active-color">4b563c</div><img class="show-img" src="./static/resource/image-1.png"><img class="icon" src="./static/resource/local-1.png"></div></div><div class="item item-2" o-tap="changeActive(1)"><div class="text" font="HYXuJingXingKaiW">活力中国</div><div class="active-line"></div><div class="edit"><div class="active-color">d1b060</div><img class="icon" src="./static/resource/local-2.png"><img class="show-img" src="./static/resource/image-2.png"></div></div><div class="item item-3" o-tap="changeActive(2)"><div class="text" font="HYXuJingXingKaiW">和谐中国</div><div class="active-line"></div><div class="edit"><div class="active-color">80a5ef</div><img class="icon" src="./static/resource/local-3.png"><img class="show-img" src="./static/resource/image-3.png"></div></div><div class="item item-4" o-tap="changeActive(3)"><div class="text" font="HYXuJingXingKaiW">乡土中国</div><div class="active-line"></div><div class="edit"><div class="active-color">477e6b</div><img class="icon" src="./static/resource/local-4.png"><img class="show-img" src="./static/resource/image-4.png"></div></div><div class="item item-5" o-tap="changeActive(4)"><div class="text" font="HYXuJingXingKaiW">文化中国</div><div class="active-line"></div><div class="edit"><div class="active-color">ead197</div><img class="icon" src="./static/resource/local-5.png"><img class="show-img" src="./static/resource/image-4.png"></div></div><div class="item item-6" o-tap="changeActive(5)"><div class="text" font="HYXuJingXingKaiW">创新中国</div><div class="active-line"></div><div class="edit"><div class="active-color">a793a1</div><img class="icon" src="./static/resource/local-6.png"><img class="show-img" src="./static/resource/image-6.png"></div></div></div></div></div></div>
     
 
     <script src="https://cunchu.site/owo/script/jquery-1.11.1.min.js" type="text/javascript"  charset="UTF-8"></script>
@@ -56,12 +56,18 @@
 <script src="./static/js/owo.core.js" type="text/javascript" charset="UTF-8"></script>
 <script type="text/javascript" charset="UTF-8">
 owo.script = {
-  "page": {},
+  "page": {
+    "created": function created() {
+      setTimeout(function () {
+        owo.go('page2');
+      }, 3000);
+    }
+  },
   "page2": {
     "created": function created() {
-      this.changeActive(0);
+      this.changeActive(0, true);
     },
-    "changeActive": function changeActive(ind) {
+    "changeActive": function changeActive(ind, start) {
       var itemList = this.queryAll('.bottom-menu .item');
 
       for (var key in itemList) {
@@ -72,24 +78,36 @@ owo.script = {
       }
 
       if (itemList[ind]) {
-        itemList[ind].classList.add('active');
-        console.log(itemList[ind].query('.text'));
+        // 如果不是页面刚启动使用特效
+        itemList[ind].classList.add('active'); // console.log(itemList[ind].query('.text'))
+
         var leftBigFont = this.query('.left-big-font');
         leftBigFont.innerText = itemList[ind].query('.text').innerText; // 更换颜色
 
         var color = '#' + itemList[ind].query('.active-color').innerText;
         leftBigFont.style.color = color;
         var card2 = this.query('.card-box .card-2');
-        card2.classList.add('fly-ani');
-        setTimeout(function () {
-          card2.style.backgroundColor = color;
-        }, 1000);
-        setTimeout(function () {
-          card2.classList.remove('fly-ani');
-        }, 2500);
-        owo.tool.fadeChangeImage(this.query('.right-logo'), itemList[ind].query('.icon').src, 2000);
+
+        if (start) {
+          this.query('.right-logo').src = itemList[ind].query('.icon').src;
+          this.query('.card-3 img').src = itemList[ind].query('.show-img').src;
+        } else {
+          card2.classList.add('fly-ani');
+          setTimeout(function () {
+            card2.style.backgroundColor = color;
+          }, 1000);
+          setTimeout(function () {
+            card2.classList.remove('fly-ani');
+          }, 2500);
+          owo.tool.fadeChangeImage(this.query('.right-logo'), itemList[ind].query('.icon').src, 2000); // 改变大图
+
+          owo.tool.fadeChangeImage(this.query('.card-3 img'), itemList[ind].query('.show-img').src, 2000);
+        }
       } // console.log(this.$target)
 
+    },
+    "showInfo": function showInfo() {
+      this.$el.classList.add('show-info');
     },
     "template": {}
   }

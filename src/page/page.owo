@@ -9,7 +9,11 @@
 
 <script>
   module.exports = {
-
+    created: function () {
+      setTimeout(() => {
+        owo.go('page2')
+      }, 3000);
+    }
   }
 </script>
 
