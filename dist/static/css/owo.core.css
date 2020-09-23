@@ -142,6 +142,18 @@ li {
 .header1 em a:hover {
   color: #666;
 }
+            [font="HYXuJingXingKaiW"] {
+              font-family: 'HYXuJingXingKaiW';
+            }
+            @font-face {
+              font-family: 'HYXuJingXingKaiW';
+              src: url('../font/HYXuJingXingKaiW.eot');
+              src: url('../font/HYXuJingXingKaiW.eot?#iefix') format('embedded-opentype'),
+                url('../font/HYXuJingXingKaiW.woff') format('woff'),
+                url('../font/HYXuJingXingKaiW.ttf')  format('truetype'),
+                url('../font/HYXuJingXingKaiW.svg#MicrosoftYaHei') format('svg');
+            }
+          
 .page2 {
   background-image: url('../resource/page2-bg.png');
 }
@@ -188,5 +200,209 @@ li {
 .page2 .card-3 {
   width: 408px;
   height: 635px;
+}
+
+.page2 .bottom-menu {
+  position: absolute;
+  bottom: 20px;
+  width: 70%;
+  font-size: 30px;
+  line-height: 120px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+.page2 .bottom-menu .item {
+  float: left;
+  text-align: center;
+  width: 16.6%;
+  cursor: pointer;
+  position: relative;
+  color: #202020;
+}
+
+.page2 .bottom-menu .text {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+
+.page2 .bottom-menu .active-line {
+  width: 60px;
+  height: 5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 20px;
+  border-radius: 2px;
+  background-color: transparent;
+}
+
+.page2 .bottom-menu .item-1.active {
+  color: #4b563c;
+}
+
+.page2 .bottom-menu .item-1.active .active-line {
+  background-color: #4b563c;
+}
+
+.page2 .bottom-menu .item-2.active {
+  color: #d1b060;
+}
+
+.page2 .bottom-menu .item-2.active .active-line {
+  background-color: #d1b060;
+}
+
+.page2 .bottom-menu .item-3.active {
+  color: #80a5ef;
+}
+
+.page2 .bottom-menu .item-3.active .active-line {
+  background-color: #80a5ef;
+}
+
+.page2 .bottom-menu .item-4.active {
+  color: #477e6b;
+}
+
+.page2 .bottom-menu .item-4.active .active-line {
+  background-color: #477e6b;
+}
+
+.page2 .bottom-menu .item-5.active {
+  color: #ead197;
+}
+
+.page2 .bottom-menu .item-5.active .active-line {
+  background-color: #ead197;
+}
+
+.page2 .bottom-menu .item-6.active {
+  color: #a793a1;
+}
+
+.page2 .bottom-menu .item-6.active .active-line {
+  background-color: #a793a1;
+}
+
+.page2 .bottom-menu .item-1:hover {
+  color: #4b563c;
+}
+
+.page2 .bottom-menu .item-2:hover {
+  color: #d1b060;
+}
+
+.page2 .bottom-menu .item-3:hover {
+  color: #80a5ef;
+}
+
+.page2 .bottom-menu .item-4:hover {
+  color: #477e6b;
+}
+
+.page2 .bottom-menu .item-5:hover {
+  color: #ead197;
+}
+
+.page2 .bottom-menu .item-6:hover {
+  color: #a793a1;
+}
+
+.page2 .left-big-font {
+  position: absolute;
+  left: 200px;
+  font-size: 55px;
+  top: -10%;
+  bottom: 0;
+  margin: auto;
+  line-height: 50px;
+  height: 50px;
+}
+
+.page2 .edit {
+  display: none;
+}
+
+.page2 .right-logo {
+  position: absolute;
+  top: -5%;
+  bottom: 0;
+  margin: auto;
+  right: 200px;
+}
+
+@-webkit-keyframes anni {
+  0% {
+    transform: rotate(-11deg);
+    opacity: 1;
+  }
+
+  10% {
+    transform: rotate(-20deg) translateY(-200px);
+    opacity: 1;
+  }
+
+  50% {
+    transform: rotate(-40deg) translateY(-800px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: rotate(-40deg) translateY(600px);
+    opacity: 0;
+  }
+
+  90% {
+    transform: rotate(-20deg) translateY(200px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(-11deg) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes anni {
+  0% {
+    transform: rotate(-11deg);
+    opacity: 1;
+  }
+
+  10% {
+    transform: rotate(-20deg) translateY(-200px);
+    opacity: 1;
+  }
+
+  50% {
+    transform: rotate(-40deg) translateY(-800px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: rotate(-40deg) translateY(600px);
+    opacity: 0;
+  }
+
+  90% {
+    transform: rotate(-20deg) translateY(200px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(-11deg) translateY(0);
+    opacity: 1;
+  }
+}
+
+.page2 .fly-ani {
+  -webkit-animation: anni 2s 1 0s linear;
+          animation: anni 2s 1 0s linear;
 }
 

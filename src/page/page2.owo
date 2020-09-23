@@ -1,14 +1,89 @@
 <template lang="pug">
 .page2
   plug(_name="module98" _src="https://template.owo.ink/d998fae6830db2ac.owo")
-  //- 卡片列表
-  .card-box
-    .card-item.card-1(style="background-color: #e1e3e0;")
-    .card-item.card-2(style="background-color: #4b563c;")
-    .card-item.card-3(style="background-color: white;")
+  .scale-box
+    //- 卡片列表
+    .card-box
+      .card-item.card-1(style="background-color: #e1e3e0;")
+      .card-item.card-2(style="background-color: #4b563c;")
+      .card-item.card-3(style="background-color: white;")
+    //- 左侧显示的大字
+    .left-big-font(font="HYXuJingXingKaiW.ttf") 美丽中国
+    //- 右侧显示的logo
+    img.right-logo(src="@|local-1.png|")
+    //- 底部选择菜单
+    .bottom-menu.clear
+      .item.item-1(o-tap="changeActive(0)")
+        .text(font="HYXuJingXingKaiW.ttf") 美丽中国
+        .active-line
+        .edit
+          .active-color 4b563c
+          img.icon(src="@|local-1.png|")
+      .item.item-2(o-tap="changeActive(1)")
+        .text(font="HYXuJingXingKaiW.ttf") 活力中国
+        .active-line
+        .edit
+          .active-color d1b060
+          img.icon(src="@|local-2.png|")
+      .item.item-3(o-tap="changeActive(2)")
+        .text(font="HYXuJingXingKaiW.ttf") 和谐中国
+        .active-line
+        .edit
+          .active-color 80a5ef
+          img.icon(src="@|local-3.png|")
+      .item.item-4(o-tap="changeActive(3)")
+        .text(font="HYXuJingXingKaiW.ttf") 乡土中国
+        .active-line
+        .edit
+          .active-color 477e6b
+          img.icon(src="@|local-4.png|")
+      .item.item-5(o-tap="changeActive(4)")
+        .text(font="HYXuJingXingKaiW.ttf") 文化中国
+        .active-line
+        .edit
+          .active-color ead197
+          img.icon(src="@|local-5.png|")
+      .item.item-6(o-tap="changeActive(5)")
+        .text(font="HYXuJingXingKaiW.ttf") 创新中国
+        .active-line
+        .edit
+          .active-color a793a1
+          img.icon(src="@|local-6.png|")
 </template>
 <script>
 module.exports = {
+  created: function () {
+    this.changeActive(0)
+  },
+  changeActive: function (ind) {
+    const itemList = this.queryAll('.bottom-menu .item')
+    for (const key in itemList) {
+      if (itemList.hasOwnProperty(key)) {
+        const element = itemList[key];
+        element.classList.remove('active')
+      }
+    }
+    if (itemList[ind]) {
+      itemList[ind].classList.add('active')
+      console.log(itemList[ind].query('.text'))
+      const leftBigFont = this.query('.left-big-font')
+      leftBigFont.innerText = itemList[ind].query('.text').innerText
+      // 更换颜色
+      const color = '#' + itemList[ind].query('.active-color').innerText
+      leftBigFont.style.color = color
+      const card2 = this.query('.card-box .card-2')
+      card2.classList.add('fly-ani')
+      setTimeout(() => {
+        card2.style.backgroundColor = color
+      }, 1000);
+      setTimeout(() => {
+        card2.classList.remove('fly-ani')
+      }, 2500);
+      owo.tool.fadeChangeImage(this.query('.right-logo'), itemList[ind].query('.icon').src, 2000)
+    }
+    
+    // console.log(this.$target)
+  }
 }
 </script>
 <style lang="less">
@@ -52,5 +127,142 @@ module.exports = {
 .card-3 {
   width: 408px;
   height: 635px;
+}
+.bottom-menu {
+  position: absolute;
+  bottom: 20px;
+  width: 70%;
+  font-size: 30px;
+  line-height: 120px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  .item {
+    float: left;
+    text-align: center;
+    width: 16.6%;
+    cursor: pointer;
+    position: relative;
+    color: #202020;
+  }
+  .text {
+    user-select: none;
+    pointer-events: none;
+  }
+  .active-line {
+    width: 60px;
+    height: 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 20px;
+    border-radius: 2px;
+    background-color: transparent;
+  }
+  .item-1.active {
+    color: #4b563c;
+    .active-line {
+      background-color: #4b563c;
+    }
+  }
+  .item-2.active {
+    color: #d1b060;
+    .active-line {
+      background-color: #d1b060;
+    }
+  }
+  .item-3.active {
+    color: #80a5ef;
+    .active-line {
+      background-color: #80a5ef;
+    }
+  }
+  .item-4.active {
+    color: #477e6b;
+    .active-line {
+      background-color: #477e6b;
+    }
+  }
+  .item-5.active {
+    color: #ead197;
+    .active-line {
+      background-color: #ead197;
+    }
+  }
+  .item-6.active {
+    color: #a793a1;
+    .active-line {
+      background-color: #a793a1;
+    }
+  }
+  .item-1:hover {
+    color: #4b563c;
+  }
+  .item-2:hover {
+    color: #d1b060;
+  }
+  .item-3:hover {
+    color: #80a5ef;
+  }
+  .item-4:hover {
+    color: #477e6b;
+  }
+  .item-5:hover {
+    color: #ead197;
+  }
+  .item-6:hover {
+    color: #a793a1;
+  }
+}
+.left-big-font {
+  position: absolute;
+  left: 200px;
+  font-size: 55px;
+  top: -10%;
+  bottom: 0;
+  margin: auto;
+  line-height: 50px;
+  height: 50px;
+}
+.edit {
+  display: none;
+}
+.right-logo {
+  position: absolute;
+  top: -5%;
+  bottom: 0;
+  margin: auto;
+  right: 200px;
+}
+@keyframes anni {
+  0%{
+    transform: rotate(-11deg);
+    opacity: 1;
+  }
+  10% {
+    transform: rotate(-20deg) translateY(-200px);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(-40deg) translateY(-800px);
+    opacity: 0;
+  }
+  60% {
+    transform: rotate(-40deg) translateY(600px);
+    opacity: 0;
+  }
+  90% {
+    transform: rotate(-20deg) translateY(200px);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-11deg) translateY(0);
+    opacity: 1;
+  }
+}
+
+.fly-ani {
+  animation: anni 2s 1 0s linear;
 }
 </style>
