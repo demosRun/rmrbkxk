@@ -81,6 +81,11 @@
 			"name": "fadeChangeImage",
 			"afterbody": true,
 			"src": "./owo_modules/fadeChangeImage.js"
+		},
+		{
+			"name": "typing",
+			"afterbody": true,
+			"src": "./owo_modules/typing.js"
 		}
 	],
 	"styleList": [
@@ -104,6 +109,11 @@
 			"name": "page2",
 			"src": "/src/page/page2.owo",
 			"type": "page"
+		},
+		{
+			"name": "logo",
+			"src": "/src/page/logo.owo",
+			"type": "block"
 		}
 	],
 	"mode": {

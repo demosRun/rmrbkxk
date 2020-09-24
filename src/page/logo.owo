@@ -1,0 +1,38 @@
+<template lang="pug">
+.logo(o-tap="clear")
+  img.so.so-1(src="@|logo.webp|")
+  img.back(src="@|back.png|")
+</template>
+<script>
+module.exports = {
+  clear: function () {
+    document.body.classList.remove('show-info')
+  }
+}
+</script>
+<style lang="less">
+.logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100px;
+  width: 500px;
+  height: 500px;
+  transition: All 2s;
+  margin: 0  auto;
+}
+.so-1 {
+  cursor: pointer;
+  z-index: 2;
+  margin: auto;
+  position: absolute;
+  width: 500px;
+}
+.back {
+  position: absolute;
+  top: 205px;
+  right: 50px;
+  transition: opacity 1s;
+  opacity: 0;
+}
+</style>

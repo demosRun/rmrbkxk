@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, bu
   display: none;
 }
 
-.show-info .right-logo, .show-info .left-big-font {
+.show-info .right-logo {
   top: -70%;
 }
 
@@ -92,17 +92,36 @@ h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, bu
   bottom: -80px;
 }
 
-.show-info .card-1, .show-info .card-2, .show-info .card-3 .show-image {
+.show-info .card-1, .show-info .card-2, .show-info .card-3 .show-image, .show-info .left-big-font {
   opacity: 0;
   user-select: none;
   pointer-events: none;
 }
 
 .show-info .card-3,  .show-info .card-box{
-  width: 1000px;
+  width: 1050px;
   height: 900px;
 }
 
 .show-info .page-show {
   display: block;
+}
+
+.show-info .logo .back {
+  opacity: 1;
+}
+
+.move {
+  left: -72%;
+  right: 0;
+  top: 50px;
+  width: 280px;
+  height: 280px;
+  margin: auto;
+}
+.move .so-1 {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
 }

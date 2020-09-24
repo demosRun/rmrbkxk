@@ -6,11 +6,14 @@
     .card-box
       .card-item.card-1(style="background-color: #e1e3e0;")
       .card-item.card-2(style="background-color: #4b563c;")
-      .card-item.card-3(style="background-color: white;" o-hover="hang" o-tap="showInfo")
+      .card-item.card-3(o-tap="showInfo")
         img.show-image
         .page-show
           .title
-          p 70年砥砺奋进，70年破浪前行。2019年是新中国成立70周年，中国成就备受世界瞩目。这一年，习近平主席在多个国内外高光时刻讲述中国发展故事，以坚定自信的政治气魄、大国领袖的责任担当，深入思考人类前途命运，引领自信的中国阔步走向世界。
+          p.text 70年砥砺奋进，70年破浪前行。2019年是新中国成立70周年，中国成就备受世界瞩目。这一年，习近平主席在多个国内外高光时刻讲述中国发展故事，以坚定自信的政治气魄、大国领袖的责任担当，深入思考人类前途命运，引领自信的中国阔步走向世界。
+          plug(_name="module185" _src="https://template.owo.ink/9938569679f1b4c8.owo")
+          //- 底部cardList
+          plug(_name="module147" _src="https://template.owo.ink/ef186f45ad9e3ef0.owo")
     //- 左侧显示的大字
     .left-big-font(font="HYXuJingXingKaiW.ttf") 美丽中国
     //- 右侧显示的logo
@@ -64,6 +67,7 @@
 module.exports = {
   created: function () {
     this.changeActive(0, true)
+    document.querySelector('.logo').classList.add('move')
   },
   changeActive: function (ind, start) {
     const itemList = this.queryAll('.bottom-menu .item')
@@ -94,9 +98,9 @@ module.exports = {
         setTimeout(() => {
           card2.classList.remove('fly-ani')
         }, 2500);
-        owo.tool.fadeChangeImage(this.query('.right-logo'), itemList[ind].query('.icon').src, 2000)
+        owo.tool.fadeChangeImage(this.query('.right-logo'), itemList[ind].query('.icon').src, 500)
         // 改变大图
-        owo.tool.fadeChangeImage(this.query('.card-3 img'), itemList[ind].query('.show-img').src, 2000)
+        owo.tool.fadeChangeImage(this.query('.card-3 img'), itemList[ind].query('.show-img').src, 500)
       }
       
     }
@@ -104,7 +108,7 @@ module.exports = {
     // console.log(this.$target)
   },
   showInfo: function () {
-    this.$el.classList.add('show-info')
+    document.body.classList.add('show-info')
   }
 }
 </script>
@@ -137,24 +141,25 @@ module.exports = {
   top: 0;
   bottom: 0;
   margin: auto;
+  overflow: hidden;
 }
 .card-1 {
   transform: rotate(3deg);
-  transition: opacity 2s;
+  transition: opacity 1.5s;
 }
 .card-2 {
   transform: rotate(-11deg);
   width: 445px;
   height: 651px;
-  transition: opacity 2s;
+  transition: opacity 1.5s;
 }
 .card-3 {
   width: 408px;
   height: 635px;
   cursor: pointer;
-  transition: width 2s, height 2s;
+  transition: width 1.5s, height 1.5s;
   .show-image {
-    transition: opacity 2s;
+    transition: opacity 1.5s;
   }
 }
 .bottom-menu {
@@ -166,7 +171,7 @@ module.exports = {
   margin: 0 auto;
   left: 0;
   right: 0;
-  transition: bottom 2s;
+  transition: bottom 1.5s;
   .item {
     float: left;
     text-align: center;
@@ -254,7 +259,7 @@ module.exports = {
   margin: auto;
   line-height: 50px;
   height: 50px;
-  transition: top 2s;
+  transition: top 1.5s;
 }
 .edit {
   display: none;
@@ -265,7 +270,7 @@ module.exports = {
   bottom: 0;
   margin: auto;
   right: 200px;
-  transition: top 2s;
+  transition: top 1.5s;
 }
 @keyframes anni {
   0%{
@@ -295,10 +300,10 @@ module.exports = {
 }
 
 .fly-ani {
-  animation: anni 2s 1 0s linear;
+  animation: anni 1.5s 1 0s linear;
 }
 .card-item {
-  img {
+  .show-image {
     display: block;
     width: 100%;
     height: 100%;
@@ -308,17 +313,31 @@ module.exports = {
 .page-show {
   display: none;
   position: absolute;
-  left: 0;
+  left: -50%;
   top: 0;
-  width: 100%;
-  height: 100%;
+  right: -50%;
+  bottom: 0;
+  margin: auto;
+  width: 1050px;
+  height: 900px;
   overflow: auto;
+  overflow-x: hidden;
   .title {
     background-image: url('@|title.png|');
     height: 60px;
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;
+  }
+  .text {
+    color: #0e0e0e;
+    font-size: 18px;
+    width: 800px;
+    display: block;
+    margin: 0 auto;
+    line-height: 1.8;
+    text-indent: 2em;
+    margin-top: 30px;
   }
 }
 </style>
