@@ -594,8 +594,8 @@ li {
 }
 
 .page2 .fly-ani {
-  -webkit-animation: anni 1.5s 1 0s linear;
-          animation: anni 1.5s 1 0s linear;
+  -webkit-animation: anni 1s 1 0s linear;
+          animation: anni 1s 1 0s linear;
 }
 
 .page2 .card-item .show-image {
@@ -638,11 +638,11 @@ li {
 }
 .logo {
   position: absolute;
-  left: -2%;
+  left: 0;
   right: 0;
-  top: -160px;
-  width: 2000px;
-  height: 1000px;
+  top: 0;
+  width: 100%;
+  height: 100%;
   transition: All 2s;
   margin: 0 auto;
 }
@@ -650,9 +650,14 @@ li {
 .logo .so-1 {
   cursor: pointer;
   z-index: 2;
-  margin: auto;
   position: absolute;
-  width: 2000px;
+  width: auto;
+  height: 95%;
+  left: -50%;
+  right: -50%;
+  top: -26%;
+  bottom: 0;
+  margin: auto;
 }
 
 .logo .back {
